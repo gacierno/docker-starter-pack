@@ -1,7 +1,7 @@
 version: "3"
 services:
     php:
-        container_name: php
+        #container_name: php
         build:
             context: ./buildFiles/phpBuild
         volumes:
@@ -12,7 +12,7 @@ services:
             - mysql_db
 
     mysql_db:
-        container_name: sql
+        #container_name: sql
         build:
             context: ./buildFiles/mysqlBuild
         ports:
@@ -21,10 +21,10 @@ services:
             MYSQL_USERNAME: root
             MYSQL_ROOT_PASSWORD: examplepass
         volumes:
-            - /Users/german/Documents/UTN/docker_laboratorio_IV/DB:/docker-entrypoint-initdb.d
+            - ./DB:/docker-entrypoint-initdb.d
     
     phpmyadmin:
-        container_name: phpmyadmin
+        #container_name: phpmyadmin
         image: phpmyadmin/phpmyadmin
         ports:
             - 8181:80
